@@ -10,7 +10,7 @@ requests.packages.urllib3.disable_warnings()
 def poc(url):
     testurl = urlhandler(url)
     if not siteIndexTest(testurl):
-        return '[SiteRequestErr-bakfile] %s' % testurl
+        return  # '[SiteRequestErr-bakfile] %s' % testurl
     return audit(testurl)
 
 

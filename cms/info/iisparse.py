@@ -8,7 +8,7 @@ from data.info_dict import IISPARSE_KEYWORD
 def poc(url):
     testurl = urlhandler(url)
     if not siteIndexTest(testurl):
-        return '[SiteRequestErr-iisparse] %s' % testurl
+        return  # '[SiteRequestErr-iisparse] %s' % testurl
 
     payload = testurl + "robots.txt/.php"
     try:

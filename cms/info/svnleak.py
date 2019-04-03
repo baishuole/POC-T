@@ -21,4 +21,4 @@ def poc(url):
         except Exception, e:
             try_cnt += 1
             if try_cnt >= RETRY_CNT:
-                return '[RequestErr-Svn_Leak] %s' % payload
+                return  # '[RequestErr-Svn_Leak] %s' % payload

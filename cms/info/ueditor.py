@@ -12,7 +12,7 @@ def poc(url):
     testurl = urlhandler(url)
 
     if not siteIndexTest(testurl):
-        return '[SiteRequestErr-UEditor] %s' % testurl
+        return  # '[SiteRequestErr-UEditor] %s' % testurl
 
     result = []
 

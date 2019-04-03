@@ -20,4 +20,4 @@ def poc(url):
             break
         except Exception:
             if try_cnt >= RETRY_CNT:
-                return '[RequestErr-Git_Leak] %s' % payload
+                return  # '[RequestErr-Git_Leak] %s' % payload
