@@ -63,7 +63,7 @@ def poc(url):
                 sock.send(auth_data)
                 result = sock.recv(1024)
                 if result == "\x07\x00\x00\x02\x00\x00\x00\x02\x00\x00\x00":
-                    return u"[MySQL弱口令] 存在弱口令, %s , %s:%s 账号：%s，密码：%s" % (url, ip,port,user, pass_)
+                    return u"[MySQL_WeakPass] %s  %s:%s  User:%s  Pass:%s" % (url, ip,port,user, pass_)
             except Exception:
                 return
 

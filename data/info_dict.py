@@ -14,6 +14,7 @@ UEDITOR_KEYWORD = '{"state":"'
 REDIS_UNAUTH_KEYWORD = 'redis_version'
 REDIS_AUTH_KEYWORD = 'Authentication'
 DZ_TOOLS_KEYWORD = 'toolpassword'
+WEBXML_KEYWORD = "<web-app"
 
 
 # bakfile suffix Format dict
@@ -22,7 +23,7 @@ BakFileSuffixFormat = ['.rar', '.zip', '.gz', '.sql.gz', '.tar.gz', '.sql',
 
 
 # mysql password dict
-MYSQL_PASSWORD_DICT = ['root', '123456', 'password', 'admin', '123123', 'P@ssw0rd!!',
+MYSQL_PASSWORD_DICT = ['','root', '123456', 'password', 'admin', '123123', 'P@ssw0rd!!',
                 'qwe123', '12345678', 'test', '123qwe!@#', '123456789',
                 '123321', '1314520', '666666', 'woaini', 'fuckyou', '000000',
                 '1234567890', '8888888', 'qwerty', '1qaz2wsx', 'abc123',
@@ -30,10 +31,19 @@ MYSQL_PASSWORD_DICT = ['root', '123456', 'password', 'admin', '123123', 'P@ssw0r
                 'p@55w0rd', 'password!', 'p@ssw0rd!', 'password1', 'r00t']
 
 
+# mssql password dict
+MSSQL_PASSWORD_DICT = ['','sa','root', '123456', 'password', 'admin', '123123', 'P@ssw0rd!!',
+                'qwe123', '12345678', 'test', '123qwe!@#', '123456789',
+                '123321', '1314520', '666666', 'woaini', 'fuckyou', '000000',
+                '1234567890', '8888888', 'qwerty', '1qaz2wsx', 'abc123',
+                'abc123456', '1q2w3e4r', '123qwe', '159357', 'p@ssw0rd',
+                'p@55w0rd', 'password!', 'p@ssw0rd!', 'password1', 'sa123456']
+
+
 # Discuz tools.php dict
-DZ_TOOLS_DICT = ['/tools.php', '/tools/tools.php', '/ucenter/tools.php',
-                 '/uc_server/tools.php', '/source/plugin/tools/tools.php',
-                 '/uc/tools.php', '/uc_server/tools/tools.php']
+DZ_TOOLS_DICT = ['tools.php', 'tools/tools.php', 'ucenter/tools.php',
+                 'uc_server/tools.php', 'source/plugin/tools/tools.php',
+                 'uc/tools.php', 'uc_server/tools/tools.php']
 
 
 # phpmyadmin dict
@@ -69,7 +79,10 @@ BAKFILE_DICT = ['__zep__/js.zip', 'admin.rar', 'admin.tar', 'admin.tar.gz',
                 'cms.rar', 'cms.zip', 'cms.tar.gz', 'cms.tar',
                 'public_html.rar', 'public_html.zip', 'public_html.tar',
                 'public_html.tar.gz', '111.rar', '111.tar', '111.tar.gz',
-                '111.zip', '1.rar', '1.tar', '1.tar.gz', '1.zip']
+                '111.zip', '1.rar', '1.tar', '1.tar.gz', '1.zip',
+                'jianzhanmoban.zip', 'jianzhanmoban.rar', 'jianzhanmoban.gz',
+                'jianzhanmoban.tar.gz', 'jianzhanmoban.tar', '新建文件夹.rar',
+                '新建文件夹.zip', '新建文件夹.tar.gz', '新建文件夹.7z']
 
 # jquery dict
 JQUERY_DICT = ['jQuery-File-Upload/server/php/index.php',
@@ -111,10 +124,12 @@ UEDITOR_DICT = ['ueditor/net/controller.ashx?action=',
                 'ueditor1432/net/controller.ashx?action=',
                 'ueditor1433/net/controller.ashx?action=',
                 'utf8-net/net/controller.ashx?action=',
+                'Content/utf8-net\/net/controller.ashx?action=',
                 'WebEditor/net/controller.ashx?action=',
                 'ueditor1_3_5-utf8-net/net/controller.ashx?action=',
                 'editor/net/controller.ashx?action=',
                 'net/controller.ashx?action=',
+                'ashx/controller.ashx?action=',
                 'controller.ashx?action=',
                 'editor/controller.ashx?action=',
                 'ueditor/controller.ashx?action=',
