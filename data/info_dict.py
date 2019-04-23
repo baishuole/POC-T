@@ -2,19 +2,20 @@
 # Merge 2019.4.3
 
 # keyword
-ROBOTS_KEYWORD = "User-agent"
-GIT_KEYWORD = "repositoryformatversion"
-SVN_KEYWORD = "svn://"
-IISPARSE_KEYWORD = "User-agent"
-WORKSPACE_KEYWORD = "<?xml version="
-TOMCATXML_KEYWORD = "<web-app"
+ROBOTS_KEYWORD = 'User-agent'
+GIT_KEYWORD = 'repositoryformatversion'
+SVN_KEYWORD = 'svn://'
+IISPARSE_KEYWORD = 'User-agent'
+WORKSPACE_KEYWORD = '<?xml version='
+TOMCATXML_KEYWORD = '<web-app'
 PHPMYADMIN_KEYWORD = 'Documentation.html'
+PHPMYADMIN_LOGIN_OK_KWD = 'mainFrameset'
 JQUERY_KEYWORD = '{"files":['
 UEDITOR_KEYWORD = '{"state":"'
 REDIS_UNAUTH_KEYWORD = 'redis_version'
 REDIS_AUTH_KEYWORD = 'Authentication'
 DZ_TOOLS_KEYWORD = 'toolpassword'
-WEBXML_KEYWORD = "<web-app"
+WEBXML_KEYWORD = '<web-app'
 
 
 # bakfile suffix Format dict
@@ -22,8 +23,17 @@ BakFileSuffixFormat = ['.rar', '.zip', '.gz', '.sql.gz', '.tar.gz', '.sql',
                        '.7z']
 
 
+PHPMYADMIN_PASSWORD_DICT = ['','root', '123456', 'root123456', 'password', 'admin',
+                       '123123', 'P@ssw0rd!!', '1234567'
+                'qwe123', '12345678', 'test', '123qwe!@#', '123456789',
+                '123321', '1314520', '666666', 'woaini', 'fuckyou', '000000',
+                '1234567890', '8888888', 'qwerty', '1qaz2wsx', 'abc123',
+                'abc123456', '1q2w3e4r', '123qwe', '159357', 'p@ssw0rd',
+                'p@55w0rd', 'password!', 'p@ssw0rd!', 'password1', 'r00t']
+
 # mysql password dict
-MYSQL_PASSWORD_DICT = ['','root', '123456', 'password', 'admin', '123123', 'P@ssw0rd!!',
+MYSQL_PASSWORD_DICT = ['','root', '123456', 'root123456', 'password', 'admin',
+                       '123123', 'P@ssw0rd!!', '1234567'
                 'qwe123', '12345678', 'test', '123qwe!@#', '123456789',
                 '123321', '1314520', '666666', 'woaini', 'fuckyou', '000000',
                 '1234567890', '8888888', 'qwerty', '1qaz2wsx', 'abc123',
@@ -48,7 +58,7 @@ DZ_TOOLS_DICT = ['tools.php', 'tools/tools.php', 'ucenter/tools.php',
 
 # phpmyadmin dict
 PHPMYADMIN_DICT = ['phpMyAdmin', 'phpMyAdmins', 'phpmyadmin-utf8',
-                   'admin/phpmyadmin/',
+                   'admin/phpmyadmin',
                    'phpMyAdmin0', 'phpMyAdmin1', 'phpMyAdmin2', 'phpMyAdmin_0',
                    'phpMyAdmin_1', 'phpMyAdmin_2', 'phpMyAdmin-0',
                    'phpMyAdmin-1', 'p',
