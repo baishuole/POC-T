@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 # project = https://github.com/Xyntax/POC-T
 # author = i@cdxy.me
-# 2019.4.25
 
 import os
 import glob
