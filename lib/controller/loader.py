@@ -13,7 +13,7 @@ from lib.core.settings import ESSENTIAL_MODULE_METHODS
 from lib.core.exception import ToolkitValueException
 from lib.controller.api import runApi
 from thirdparty.IPy import IPy
-
+from lib.core.settings import IS_WIN
 
 def loadModule():
     conf.MODULE_PLUGIN = dict()
@@ -25,7 +25,14 @@ def loadModule():
         if conf.batchfuzz:
             fp, pathname, description = imp.find_module(os.path.splitext(_name)[0], [paths.FUZZ_PATH])
         elif conf.cmsfuzz:
-            fp, pathname, description = imp.find_module(os.path.splitext(_name)[0], [paths.USE_CMS_PATH])
+            if paths.USE_CMS_PATH:
+                for eachPathUseCmsPath in paths.USE_CMS_PATH:
+                    if IS_WIN:
+                        if os.path.exists(eachPathUseCmsPath + '\\' + _name):
+                            fp, pathname, description = imp.find_module(os.path.splitext(_name)[0], [eachPathUseCmsPath])
+                    else:
+                        if os.path.exists(eachPathUseCmsPath + '/' + _name):
+                            fp, pathname, description = imp.find_module(os.path.splitext(_name)[0], [eachPathUseCmsPath])
         else:
             fp, pathname, description = imp.find_module(os.path.splitext(_name)[0], [paths.SCRIPT_PATH])
         try:
@@ -38,7 +45,9 @@ def loadModule():
             conf.MODULE_PLUGIN[_name] = module_obj
         except ImportError, e:
             errorMsg = "Your current scipt [%s.py] caused this exception\n%s\n%s" \
-                    % (_name, '[Error Msg]: ' + str(e), 'Maybe you can download this module from pip or easy_install')
+                       % (
+                           _name, '[Error Msg]: ' + str(e),
+                           'Maybe you can download this module from pip or easy_install')
             sys.exit(logger.error(errorMsg))
 
 
@@ -64,7 +73,7 @@ def loadPayloads():
 
 def file_mode():
     for line in open(conf.INPUT_FILE_PATH):
-        for name,exp in conf.MODULE_PLUGIN.items():
+        for name, exp in conf.MODULE_PLUGIN.items():
             sub = line.strip()
             if sub:
                 module = dict()
@@ -77,7 +86,7 @@ def file_mode():
 def int_mode():
     _int = conf.I_NUM2.strip().split('-')
     for each in range(int(_int[0].strip()), int(_int[1].strip())):
-        for name,exp in conf.MODULE_PLUGIN.items():
+        for name, exp in conf.MODULE_PLUGIN.items():
             module = dict()
             module["sub"] = str(each)
             module["poc"] = exp
@@ -92,7 +101,7 @@ def net_mode():
     except Exception, e:
         sys.exit(logger.error('Invalid IP/MASK,%s' % e))
     for each in _list:
-        for name,exp in conf.MODULE_PLUGIN.items():
+        for name, exp in conf.MODULE_PLUGIN.items():
             module = dict()
             module["sub"] = str(each)
             module["poc"] = exp
@@ -101,7 +110,7 @@ def net_mode():
 
 
 def single_target_mode():
-    for name,exp in conf.MODULE_PLUGIN.items():
+    for name, exp in conf.MODULE_PLUGIN.items():
         module = dict()
         module["sub"] = str(conf.SINGLE_TARGET_STR)
         module["poc"] = exp
@@ -116,7 +125,7 @@ def api_mode():
 
     file = runApi()
     for line in open(file):
-        for name,exp in conf.MODULE_PLUGIN.items():
+        for name, exp in conf.MODULE_PLUGIN.items():
             module = dict()
             module["sub"] = line.strip()
             module["name"] = name

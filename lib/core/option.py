@@ -69,27 +69,73 @@ def EngineRegister(args):
         msg = 'Invalid input in [-t], range: 1 to 500'
         sys.exit(logger.error(msg))
 
-def loadAllPlugins():
+
+def loadFuzzPlugins():
     conf.batchfuzz = True
     for dirpath, dirnames, filenames in os.walk(paths.FUZZ_PATH):
         for filename in filenames:
             if '__init__' not in filename and '.pyc' not in filename:
                 conf.MODULE_USE.append(filename)
 
-def loadAllCms(cmsName):
+
+def loadCmsPlugins(cmsName):
     conf.cmsfuzz = True
+    conf.cmsLists = []
+    paths.USE_CMS_PATH = []
     for cms_name in os.listdir(paths.CMS_PATH):
         if '__init__' not in cms_name and '.pyc' not in cms_name:
             conf.CMS_TYPE.append(cms_name)
-    if cmsName not in conf.CMS_TYPE:
-        msg = 'cmsName error'
-        sys.exit(logger.error(msg))
+
+    if ',' in cmsName:
+        for cmslist in cmsName.split(','):
+            if cmslist.strip() not in conf.cmsLists:
+                conf.cmsLists.append(cmslist.strip())
     else:
-        paths.USE_CMS_PATH = os.path.join(paths.CMS_PATH, cmsName)
-        for dirpath, dirnames, filenames in os.walk(os.path.join(paths.USE_CMS_PATH)):
-            for filename in filenames:
-                if '__init__' not in filename and '.pyc' not in filename:
-                    conf.MODULE_USE.append(filename)
+        conf.cmsLists.append(cmsName)
+
+    for eachCmsName in conf.cmsLists:
+        if eachCmsName not in conf.CMS_TYPE:
+            msg = '%s directory does not exist' % eachCmsName
+            sys.exit(logger.error(msg))
+        else:
+            paths.USE_CMS_PATH.append(os.path.join(paths.CMS_PATH, eachCmsName))
+            for pathUseCmsPath in paths.USE_CMS_PATH:
+                for dirpath, dirnames, filenames in os.walk(os.path.join(pathUseCmsPath)):
+                    for filename in filenames:
+                        if '__init__' not in filename and '.pyc' not in filename:
+                            if filename not in conf.MODULE_USE:
+                                conf.MODULE_USE.append(filename)
+
+
+def loadScriptsPlugins(input_path):
+    if os.path.split(input_path)[0]:
+        if os.path.exists(input_path):
+            if os.path.isfile(input_path):
+                if input_path.endswith('.py'):
+                    conf.MODULE_NAME = os.path.split(input_path)[-1]
+                    conf.MODULE_FILE_PATH = os.path.abspath(input_path)
+                else:
+                    msg = '[%s] not a Python file. Example: [-s spider] or [-s ./script/spider.py]' % input_path
+                    sys.exit(logger.error(msg))
+            else:
+                msg = '[%s] not a file. Example: [-s spider] or [-s ./script/spider.py]' % input_path
+                sys.exit(logger.error(msg))
+        else:
+            msg = '[%s] not found. Example: [-s spider] or [-s ./script/spider.py]' % input_path
+            sys.exit(logger.error(msg))
+
+    # handle input: "-s spider"  "-s spider.py"
+    else:
+        if not input_path.endswith('.py'):
+            input_path += '.py'
+        _path = os.path.abspath(os.path.join(paths.SCRIPT_PATH, input_path))
+        if os.path.isfile(_path):
+            conf.MODULE_NAME = input_path
+            conf.MODULE_FILE_PATH = os.path.abspath(_path)
+        else:
+            msg = 'Script [%s] not exist. Use [--show] to view all available script in ./script/' % input_path
+            sys.exit(logger.error(msg))
+    conf.MODULE_USE.append(conf.MODULE_NAME)
 
 
 def ScriptRegister(args):
@@ -102,44 +148,15 @@ def ScriptRegister(args):
 
     # handle input: nothing
     if not (input_path or batch or cmsType):
-        msg = 'Use -s to load script. Example: [-s spider] or [-s ./script/spider.py]'
+        msg = 'Use -s to load script. Example: [-s spider] or [-s ./script/spider.py] or [--fuzz] or [--cms dedecms]'
         sys.exit(logger.error(msg))
 
     if batch:
-        loadAllPlugins()
+        loadFuzzPlugins()
     elif cmsType:
-        loadAllCms(cmsType)
-
-    # handle input: "-s ./script/spider.py"
-    if input_path:
-        if os.path.split(input_path)[0]:
-            if os.path.exists(input_path):
-                if os.path.isfile(input_path):
-                    if input_path.endswith('.py'):
-                        conf.MODULE_NAME = os.path.split(input_path)[-1]
-                        conf.MODULE_FILE_PATH = os.path.abspath(input_path)
-                    else:
-                        msg = '[%s] not a Python file. Example: [-s spider] or [-s ./script/spider.py]' % input_path
-                        sys.exit(logger.error(msg))
-                else:
-                    msg = '[%s] not a file. Example: [-s spider] or [-s ./script/spider.py]' % input_path
-                    sys.exit(logger.error(msg))
-            else:
-                msg = '[%s] not found. Example: [-s spider] or [-s ./script/spider.py]' % input_path
-                sys.exit(logger.error(msg))
-
-        # handle input: "-s spider"  "-s spider.py"
-        else:
-            if not input_path.endswith('.py'):
-                input_path += '.py'
-            _path = os.path.abspath(os.path.join(paths.SCRIPT_PATH, input_path))
-            if os.path.isfile(_path):
-                conf.MODULE_NAME = input_path
-                conf.MODULE_FILE_PATH = os.path.abspath(_path)
-            else:
-                msg = 'Script [%s] not exist. Use [--show] to view all available script in ./script/' % input_path
-                sys.exit(logger.error(msg))
-        conf.MODULE_USE.append(conf.MODULE_NAME)
+        loadCmsPlugins(cmsType)
+    elif input_path:
+        loadScriptsPlugins(input_path)
 
 
 def TargetRegister(args):
@@ -166,7 +183,7 @@ def TargetRegister(args):
             if int(_int[0]) < int(_int[1]):
                 if int(_int[1]) - int(_int[0]) > 1000000:
                     warnMsg = "Loading %d targets, Maybe it's too much, continue? [y/N]" % (
-                        int(_int[1]) - int(_int[0]))
+                            int(_int[1]) - int(_int[0]))
                     logger.warning(warnMsg)
                     a = raw_input()
                     if a in ('Y', 'y', 'yes'):
