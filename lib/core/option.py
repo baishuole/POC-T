@@ -146,7 +146,6 @@ def ScriptRegister(args):
     cmsType = args.cms
     conf.CMS_TYPE = []
 
-    # handle input: nothing
     if not (input_path or batch or cmsType):
         msg = 'Use -s to load script. Example: [-s spider] or [-s ./script/spider.py] or [--fuzz] or [--cms dedecms]'
         sys.exit(logger.error(msg))

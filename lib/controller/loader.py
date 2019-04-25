@@ -16,6 +16,9 @@ from thirdparty.IPy import IPy
 from lib.core.settings import IS_WIN
 
 def loadModule():
+    """
+    需要测试Linux下多个CMS是否运行正常
+    """
     conf.MODULE_PLUGIN = dict()
     index = 0
     for _name in conf.MODULE_USE:
@@ -45,8 +48,7 @@ def loadModule():
             conf.MODULE_PLUGIN[_name] = module_obj
         except ImportError, e:
             errorMsg = "Your current scipt [%s.py] caused this exception\n%s\n%s" \
-                       % (
-                           _name, '[Error Msg]: ' + str(e),
+                       % (_name, '[Error Msg]: ' + str(e),
                            'Maybe you can download this module from pip or easy_install')
             sys.exit(logger.error(errorMsg))
 
