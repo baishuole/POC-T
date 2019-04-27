@@ -71,28 +71,22 @@ PHPINFO_DICT = ['phpinfo.php', 'ceshi.php', 'info.php', 'phpversion.php',
                 'php.php', 'pi.php', 'tz/tz.php', 'tst.php', 'php_info.php',
                 'test1.php']
 
+# bakfile name
+BAKFILE_NAME = ['admin', 'backup', 'bbs', 'data', 'faisunzip', 'flashfxp',
+                'ftp', 'web', 'www', 'wwwroot.sql', 'sql', 'htdocs',
+                'cms', 'public_html', '111', '1', 'jianzhanmoban',
+                '新建文件夹', 'db', 'pay', 'm', 'themes',
+                ]
+
+# balfile format
+BAKFILE_FORMAT = ['.rar', '.zip', '.tar.gz', '.tar', '7z']
+
 # bakfile dict
-BAKFILE_DICT = ['__zep__/js.zip', 'admin.rar', 'admin.tar.gz',
-                'admin.zip', 'backup.rar', 'backup.tar.gz',
-                'backup.zip', 'bbs.rar', 'bbs.tar.gz', 'bbs.zip',
-                'data.rar', 'data.tar.gz', 'data.zip',
-                'faisunzip.rar', 'faisunzip.zip',
-                'faisunzip.tar.gz', 'flashfxp.rar',
-                'flashfxp.tar.gz', 'flashfxp.zip', 'ftp.rar',
-                'ftp.tar.gz', 'ftp.zip', 'web.rar',
-                'web.tar.gz', 'web.zip', 'www.rar', 'www.tar.gz',
-                'www.zip', 'wwwroot.gz', 'wwwroot.rar', 'wwwroot.sql',
-                'wwwroot.sql.zip', 'wwwroot.tar.gz',
-                'wwwroot.zip', 'sql.zip', 'sql.rar', 'sql.tar.gz',
-                'htdocs.zip', 'htdocs.rar', 'htdocs.tar.gz',
-                'cms.rar', 'cms.zip', 'cms.tar.gz',
-                'public_html.rar', 'public_html.zip',
-                'public_html.tar.gz', '111.rar', '111.tar.gz',
-                '111.zip', '1.rar', '1.tar.gz', '1.zip',
-                'jianzhanmoban.zip', 'jianzhanmoban.rar', 'jianzhanmoban.gz',
-                'jianzhanmoban.tar.gz', '新建文件夹.rar',
-                '新建文件夹.zip', '新建文件夹.tar.gz', '新建文件夹.7z', 'db.rar',
-                'db.zip', 'db.tar.gz', 'pay.rar', 'pay.zip', 'pay.tar.gz']
+BAKFILE_DICT = ['__zep__/js.zip']
+for bakname in BAKFILE_NAME:
+    for bakformat in BAKFILE_FORMAT:
+        if bakname+bakformat not in BAKFILE_DICT:
+            BAKFILE_DICT.append(bakname+bakformat)
 
 # jquery dict
 JQUERY_DICT = ['jQuery-File-Upload/server/php/index.php',
