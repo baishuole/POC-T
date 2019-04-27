@@ -16,45 +16,44 @@ REDIS_UNAUTH_KEYWORD = 'redis_version'
 REDIS_AUTH_KEYWORD = 'Authentication'
 DZ_TOOLS_KEYWORD = 'toolpassword'
 WEBXML_KEYWORD = '<web-app'
-
+SITESERVER_KEYWORD = 'www.siteserver.cn'
+SITESERVER_KEYWORD1 = 'www.bairongsoft.com'
 
 # bakfile suffix Format dict
 BakFileSuffixFormat = ['.rar', '.zip', '.gz', '.sql.gz', '.tar.gz', '.sql',
                        '.7z']
 
-
-PHPMYADMIN_PASSWORD_DICT = ['','root', '123456', 'root123456', 'password', 'admin',
-                       '123123', 'P@ssw0rd!!', '1234567'
-                'qwe123', '12345678', 'test', '123qwe!@#', '123456789',
-                '123321', '1314520', '666666', 'woaini', 'fuckyou', '000000',
-                '1234567890', '8888888', 'qwerty', '1qaz2wsx', 'abc123',
-                'abc123456', '1q2w3e4r', '123qwe', '159357', 'p@ssw0rd',
-                'p@55w0rd', 'password!', 'p@ssw0rd!', 'password1', 'r00t']
+PHPMYADMIN_PASSWORD_DICT = ['', 'root', '123456', 'root123456', 'password',
+                            'admin',
+                            '1234567', 'huweishen.com', '123qwe']
 
 # mysql password dict
-MYSQL_PASSWORD_DICT = ['','root', '123456', 'root123456', 'password', 'admin',
+MYSQL_PASSWORD_DICT = ['', 'root', '123456', 'root123456', 'password', 'admin',
                        '123123', 'P@ssw0rd!!', '1234567'
-                'qwe123', '12345678', 'test', '123qwe!@#', '123456789',
-                '123321', '1314520', '666666', 'woaini', 'fuckyou', '000000',
-                '1234567890', '8888888', 'qwerty', '1qaz2wsx', 'abc123',
-                'abc123456', '1q2w3e4r', '123qwe', '159357', 'p@ssw0rd',
-                'p@55w0rd', 'password!', 'p@ssw0rd!', 'password1', 'r00t']
-
+                                               'qwe123', '12345678', 'test',
+                       '123qwe!@#', '123456789',
+                       '123321', '1314520', '666666', 'woaini', 'fuckyou',
+                       '000000',
+                       '1234567890', '8888888', 'qwerty', '1qaz2wsx', 'abc123',
+                       'abc123456', '1q2w3e4r', '123qwe', '159357', 'p@ssw0rd',
+                       'p@55w0rd', 'password!', 'p@ssw0rd!', 'password1',
+                       'r00t']
 
 # mssql password dict
-MSSQL_PASSWORD_DICT = ['','sa','root', '123456', 'password', 'admin', '123123', 'P@ssw0rd!!',
-                'qwe123', '12345678', 'test', '123qwe!@#', '123456789',
-                '123321', '1314520', '666666', 'woaini', 'fuckyou', '000000',
-                '1234567890', '8888888', 'qwerty', '1qaz2wsx', 'abc123',
-                'abc123456', '1q2w3e4r', '123qwe', '159357', 'p@ssw0rd',
-                'p@55w0rd', 'password!', 'p@ssw0rd!', 'password1', 'sa123456']
-
+MSSQL_PASSWORD_DICT = ['', 'sa', 'root', '123456', 'password', 'admin',
+                       '123123', 'P@ssw0rd!!',
+                       'qwe123', '12345678', 'test', '123qwe!@#', '123456789',
+                       '123321', '1314520', '666666', 'woaini', 'fuckyou',
+                       '000000',
+                       '1234567890', '8888888', 'qwerty', '1qaz2wsx', 'abc123',
+                       'abc123456', '1q2w3e4r', '123qwe', '159357', 'p@ssw0rd',
+                       'p@55w0rd', 'password!', 'p@ssw0rd!', 'password1',
+                       'sa123456']
 
 # Discuz tools.php dict
 DZ_TOOLS_DICT = ['tools.php', 'tools/tools.php', 'ucenter/tools.php',
                  'uc_server/tools.php', 'source/plugin/tools/tools.php',
                  'uc/tools.php', 'uc_server/tools/tools.php']
-
 
 # phpmyadmin dict
 PHPMYADMIN_DICT = ['phpMyAdmin', 'phpMyAdmins', 'phpmyadmin-utf8',
@@ -73,26 +72,27 @@ PHPINFO_DICT = ['phpinfo.php', 'ceshi.php', 'info.php', 'phpversion.php',
                 'test1.php']
 
 # bakfile dict
-BAKFILE_DICT = ['__zep__/js.zip', 'admin.rar', 'admin.tar', 'admin.tar.gz',
-                'admin.zip', 'backup.rar','backup.tar','backup.tar.gz',
-                'backup.zip', 'bbs.rar','bbs.tar','bbs.tar.gz','bbs.zip',
-                'data.rar', 'data.tar', 'data.tar.gz', 'data.zip',
-                'faisunzip.rar', 'faisunzip.zip',  'faisunzip.tar',
-                'faisunzip.tar.gz', 'flashfxp.rar', 'flashfxp.tar',
+BAKFILE_DICT = ['__zep__/js.zip', 'admin.rar', 'admin.tar.gz',
+                'admin.zip', 'backup.rar', 'backup.tar.gz',
+                'backup.zip', 'bbs.rar', 'bbs.tar.gz', 'bbs.zip',
+                'data.rar', 'data.tar.gz', 'data.zip',
+                'faisunzip.rar', 'faisunzip.zip',
+                'faisunzip.tar.gz', 'flashfxp.rar',
                 'flashfxp.tar.gz', 'flashfxp.zip', 'ftp.rar',
-                'ftp.tar', 'ftp.tar.gz', 'ftp.zip', 'web.rar', 'web.tar',
-                'web.tar.gz', 'web.zip', 'www.rar', 'www.tar', 'www.tar.gz',
+                'ftp.tar.gz', 'ftp.zip', 'web.rar',
+                'web.tar.gz', 'web.zip', 'www.rar', 'www.tar.gz',
                 'www.zip', 'wwwroot.gz', 'wwwroot.rar', 'wwwroot.sql',
-                'wwwroot.sql.zip', 'wwwroot.tar', 'wwwroot.tar.gz',
-                'wwwroot.zip', 'sql.zip', 'sql.rar', 'sql.tar', 'sql.tar.gz',
-                'htdocs.zip', 'htdocs.rar', 'htdocs.tar.gz', 'htdocs.tar',
-                'cms.rar', 'cms.zip', 'cms.tar.gz', 'cms.tar',
-                'public_html.rar', 'public_html.zip', 'public_html.tar',
-                'public_html.tar.gz', '111.rar', '111.tar', '111.tar.gz',
-                '111.zip', '1.rar', '1.tar', '1.tar.gz', '1.zip',
+                'wwwroot.sql.zip', 'wwwroot.tar.gz',
+                'wwwroot.zip', 'sql.zip', 'sql.rar', 'sql.tar.gz',
+                'htdocs.zip', 'htdocs.rar', 'htdocs.tar.gz',
+                'cms.rar', 'cms.zip', 'cms.tar.gz',
+                'public_html.rar', 'public_html.zip',
+                'public_html.tar.gz', '111.rar', '111.tar.gz',
+                '111.zip', '1.rar', '1.tar.gz', '1.zip',
                 'jianzhanmoban.zip', 'jianzhanmoban.rar', 'jianzhanmoban.gz',
-                'jianzhanmoban.tar.gz', 'jianzhanmoban.tar', '新建文件夹.rar',
-                '新建文件夹.zip', '新建文件夹.tar.gz', '新建文件夹.7z']
+                'jianzhanmoban.tar.gz', '新建文件夹.rar',
+                '新建文件夹.zip', '新建文件夹.tar.gz', '新建文件夹.7z', 'db.rar',
+                'db.zip', 'db.tar.gz', 'pay.rar', 'pay.zip', 'pay.tar.gz']
 
 # jquery dict
 JQUERY_DICT = ['jQuery-File-Upload/server/php/index.php',
@@ -181,8 +181,8 @@ UEDITOR_DICT = ['ueditor/net/controller.ashx?action=',
                 'login/ueditor/net/controller.ashx?action=',
                 'comm/ueditor/net/controller.ashx?action=']
 
-PASSWORD_DIC = ['redis', 'password', 'foobared', 'root', 'admin','123456',
-                '188281MWWxjk','discuz','admin12345678', 'admin123456789',
+PASSWORD_DIC = ['redis', 'password', 'foobared', 'root', 'admin', '123456',
+                '188281MWWxjk', 'discuz', 'admin12345678', 'admin123456789',
                 'aa123456789', 'zxcvbnm', 'admin123', 'manager', 'asdfghjkl',
                 'wang123456', '123456789qq', '1234554321', '7894561230',
                 '123456789', 'admin8', '1qw23er4', 'admin888', 'asd123',
@@ -195,7 +195,7 @@ PASSWORD_DIC = ['redis', 'password', 'foobared', 'root', 'admin','123456',
                 'caonima', 'admin123456', 'z123456789', 'abcd123', 'woaini1314',
                 '123456789', '1234567', 'qwe123456', '5841314520', '666666',
                 'aa123456', '1234567899', '5201314', '1234567891', '1234567890',
-                '123456abc', 'iloveyou', 'admin1234', 'abc123','123456789.',
+                '123456abc', 'iloveyou', 'admin1234', 'abc123', '123456789.',
                 'admin999', '1111111111', '654321', 'aaa123456', 'q123456',
                 '0000000000000000', 'www123456', 'woaini123', '12345678910',
                 '0000000000', 'asd123456', 'abc123456', 'zxc123456',
@@ -206,7 +206,7 @@ PASSWORD_DIC = ['redis', 'password', 'foobared', 'root', 'admin','123456',
                 'abcd1234', '1357924680', '123456aa', 'qwerty', 'zhang123456',
                 'woaini', '5201314520', '111111111', 'as123456', '1472583690',
                 'z123456', 'phpcms', '123456789abc', '888888', '9876543210',
-                'admin!@#', '112233','987654321', '123456qq', '123456..',
+                'admin!@#', '112233', '987654321', '123456qq', '123456..',
                 'ABC@123', '135792468', 'w123456789', 'a123456789', 'woaini521',
                 'woaini520', 'aini1314', 'q1w2e3r4', '111111', '123456789q',
                 '110120119', 'a123123', 'abc@123', 'a123456']
